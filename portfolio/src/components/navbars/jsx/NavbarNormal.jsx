@@ -55,9 +55,10 @@ export default function NavbarNormal() {
                         </button>
                     </div>
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="flex flex-shrink-0 items-center me-3">
+                        {/* Envolviendo el ícono con un Link */}
+                        <Link to="/Portfolio/Home" className="flex flex-shrink-0 items-center me-3">
                             <FontAwesomeIcon icon={faBriefcase} className="h-8 w-auto text-indigo-500" />
-                        </div>
+                        </Link>
                         {/* Menú para pantallas grandes */}
                         <div className="hidden sm:flex sm:space-x-4">
                             {navigation.map((item) => (
