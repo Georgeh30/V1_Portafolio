@@ -1,61 +1,60 @@
-:root {
-    /* Light Theme */
-    --color-bg: #F0F2F5;
-    --color-primary: #2C3E50;
-    --color-secondary: #34495E;
-    --color-accent: #1ABC9C;
-    --color-text: #2C3E50;
-    --color-button-bg: #2C3E50;
-    --color-button-text: #ECF0F1;
-    --color-button-hover-bg: #0f6ab4;
-    --color-button-hover-text: #FFFFFF;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles.css or global.css */
+body {
+    @apply bg-lightColor text-darkColor dark:bg-darkColor dark:text-lightColor;
 }
 
-[data-theme="dark"] {
-    /* Dark Theme */
-    --color-bg: #2C3E50;
-    --color-primary: #ECF0F1;
-    --color-secondary: #95A5A6;
-    --color-accent: #1ABC9C;
-    --color-text: #ECF0F1;
-    --color-button-bg: #ECF0F1;
-    --color-button-text: #2C3E50;
-    --color-button-hover-bg: #539cd8;
-    --color-button-hover-text: #2C3E50;
+/* styles.css or global.css */
+/* :root {
+    --bg-color: #ffffff;
+    --bg-color-header: #eff6ff;
+    --bg-color-footer: #eff6ff;
+    --text-color: #1a202c;
+}
+
+.navbar {
+    box-shadow: none !important;
+}
+
+.dark {
+    --bg-color: #1a202c;
+    --bg-color-header: #202837;
+    --bg-color-footer: #202837;
+    --text-color: #ffffff;
 }
 
 body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    color: var(--color-primary);
+.bg-light-header {
+    background-color: var(--bg-color-header);
 }
 
-a {
-    color: var(--color-accent);
+.bg-light-footer {
+    background-color: var(--bg-color-footer);
 }
 
-button {
-    background-color: var(--color-button-bg);
-    color: var(--color-button-text);
-    border: none;
-    padding: 0.5em 1em;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+.bg-gray-900 {
+    background-color: var(--bg-color);
 }
 
-button:hover {
-    background-color: var(--color-button-hover-bg);
-    color: var(--color-button-hover-text);
+.text-gray-300 {
+    color: var(--text-color);
 }
+
+.ring-white {
+    --tw-ring-color: var(--text-color);
+}
+
+.text-white {
+    color: var(--text-color);
+}
+
+.profile-card-back {
+    background-color: var(--bg-color) !important;
+} */

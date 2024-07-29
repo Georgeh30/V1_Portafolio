@@ -1,22 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
+
+import RoutesHandle from '@routes/jsx/RoutesHandle';
 
 import Header from '@components/headers/jsx/Header';
+import NavbarNormal from '@components/navbars/jsx/NavbarNormal';
 
 import '@app/css/App.css'
 
 function App() {
-    const [theme, setTheme] = useState('light');
-
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    };
+    useLayoutEffect(() => {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, []);
 
     return (
-        <Header toggleTheme={toggleTheme} />
+        <RoutesHandle />
     );
 }
 

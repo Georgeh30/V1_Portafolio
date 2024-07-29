@@ -1,4 +1,4 @@
-const Header = ({ toggleTheme }) => {
+/* const Header = ({ toggleTheme }) => {
     return (
         <header>
             <nav>
@@ -8,4 +8,17 @@ const Header = ({ toggleTheme }) => {
     );
 };
 
+export default Header; */
+
+import NavbarNormal from '@components/navbars/jsx/NavbarNormal';
+
+const Header = () => {
+    return (
+        <header>
+            <NavbarNormal />
+        </header>
+    );
+};
+
 export default Header;
+
