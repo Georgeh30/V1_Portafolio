@@ -55,11 +55,11 @@ export default function NavbarNormal() {
                         </button>
                     </div>
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="flex flex-shrink-0 items-center">
+                        <div className="flex flex-shrink-0 items-center me-3">
                             <FontAwesomeIcon icon={faBriefcase} className="h-8 w-auto text-indigo-500" />
                         </div>
-                        <div className={`absolute inset-x-0 top-16 mt-2 space-y-1 px-2 pb-3 pt-2 sm:relative sm:mt-0 sm:flex sm:space-x-4 ${isOpen ? 'block' : 'hidden'} bg-white dark:bg-gray-800 rounded-md shadow-lg`}>
-                            {/* Ajustes para el menú desplegable */}
+                        {/* Menú para pantallas grandes */}
+                        <div className="hidden sm:flex sm:space-x-4">
                             {navigation.map((item) => (
                                 <Link
                                     key={item.name}
@@ -69,12 +69,9 @@ export default function NavbarNormal() {
                                         item.href === currentPath
                                             ? 'bg-gray-900 dark:bg-darkColor text-white dark:text-lightColor'
                                             : 'dark:text-lightColor hover:bg-lightColorHover dark:hover:bg-darkColorHover',
-                                        'block rounded-md px-3 py-2 text-base font-medium'
+                                        'rounded-md px-3 py-2 text-sm font-medium'
                                     )}
-                                    onClick={() => {
-                                        setCurrentPath(item.href);
-                                        setIsOpen(false); // Cierra el menú al seleccionar una opción
-                                    }}
+                                    onClick={() => setCurrentPath(item.href)}
                                 >
                                     {item.name}
                                 </Link>
@@ -95,6 +92,30 @@ export default function NavbarNormal() {
                             )}
                         </button>
                     </div>
+                </div>
+            </div>
+            {/* Menú desplegable en pantallas pequeñas */}
+            <div className={`sm:hidden ${isOpen ? 'block' : 'hidden'} bg-white dark:bg-gray-800 rounded-md shadow-lg absolute inset-x-0 top-16 mt-2`}>
+                <div className="space-y-1 px-2 pb-3 pt-2">
+                    {navigation.map((item) => (
+                        <Link
+                            key={item.name}
+                            to={item.href}
+                            aria-current={item.href === currentPath ? 'page' : undefined}
+                            className={classNames(
+                                item.href === currentPath
+                                    ? 'bg-gray-900 dark:bg-darkColor text-white dark:text-lightColor'
+                                    : 'dark:text-lightColor hover:bg-lightColorHover dark:hover:bg-darkColorHover',
+                                'block rounded-md px-3 py-2 text-base font-medium'
+                            )}
+                            onClick={() => {
+                                setCurrentPath(item.href);
+                                setIsOpen(false); // Cierra el menú al seleccionar una opción
+                            }}
+                        >
+                            {item.name}
+                        </Link>
+                    ))}
                 </div>
             </div>
         </nav>
