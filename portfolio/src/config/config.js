@@ -8,7 +8,7 @@ const baseDomain = window.location.protocol + '//' + window.location.host.replac
 
 const baseDomainWithPort = hasPort ? `${baseDomain}:${port}` : `${baseDomain}`;
 
-const BASE_URL = isProduction ? '' : '/';
+const BASE_URL = /* isProduction ? '' :  */'/';
 
 const config = {
     BASE_URL,

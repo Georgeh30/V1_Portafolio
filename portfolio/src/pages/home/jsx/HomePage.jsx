@@ -83,7 +83,7 @@ const HomePage = () => {
                         <div className="profile-card-inner">
                             <div className="profile-card-front">
                                 <motion.img
-                                    src={`/img/perfil.png`}
+                                    src={`${BASE_URL}img/perfil.png`}
                                     alt="Profile Picture"
                                     className="rounded-full w-32 h-32 shadow-lg"
                                     initial={{ scale: 0.8 }}
