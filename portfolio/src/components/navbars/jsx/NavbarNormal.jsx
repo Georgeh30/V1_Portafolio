@@ -13,11 +13,11 @@ const navigation = [
     { name: 'Curriculum', href: '/Portfolio/Curriculum' },
 ];
 
-function classNames(...classes) {
+const classNames = (...classes) => {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function NavbarNormal() {
+const NavbarNormal = () => {
     const [darkMode, setDarkMode] = useState(() => localStorage.getItem('theme') === 'dark');
     const [isOpen, setIsOpen] = useState(false); // Estado para el menú desplegable
     const location = useLocation();
@@ -47,7 +47,7 @@ export default function NavbarNormal() {
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                         <button 
                             onClick={() => setIsOpen(!isOpen)} // Cambia el estado al hacer clic
-                            className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 dark:text-lightColor hover:bg-gray-700 hover:text-white focus:outline-none"
+                            className="relative inline-flex items-center justify-center rounded-md p-2 dark:text-lightColor hover:dark:bg-darkColorHover hover:bg-lightColorHover hover:text-darkColorHover focus:outline-none"
                         >
                             <span className="sr-only">Open main menu</span>
                             <Bars3Icon className={`h-6 w-6 ${isOpen ? 'hidden' : 'block'}`} aria-hidden="true" />
@@ -68,7 +68,7 @@ export default function NavbarNormal() {
                                     aria-current={item.href === currentPath ? 'page' : undefined}
                                     className={classNames(
                                         item.href === currentPath
-                                            ? 'bg-gray-900 dark:bg-darkColor text-white dark:text-lightColor'
+                                            ? 'dark:bg-darkColor dark:text-lightColor bg-lightColor text-darkColor'
                                             : 'dark:text-lightColor hover:bg-lightColorHover dark:hover:bg-darkColorHover',
                                         'rounded-md px-3 py-2 text-sm font-medium'
                                     )}
@@ -96,7 +96,7 @@ export default function NavbarNormal() {
                 </div>
             </div>
             {/* Menú desplegable en pantallas pequeñas */}
-            <div className={`sm:hidden ${isOpen ? 'block' : 'hidden'} bg-white dark:bg-gray-800 rounded-md shadow-lg absolute inset-x-0 top-16 mt-2`}>
+            <div className={`sm:hidden ${isOpen ? 'block' : 'hidden'} bg-lightColorHF dark:bg-darkColorHF rounded-md shadow-lg absolute inset-x-0 top-16 mt-2`}>
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {navigation.map((item) => (
                         <Link
@@ -105,7 +105,7 @@ export default function NavbarNormal() {
                             aria-current={item.href === currentPath ? 'page' : undefined}
                             className={classNames(
                                 item.href === currentPath
-                                    ? 'bg-gray-900 dark:bg-darkColor text-white dark:text-lightColor'
+                                    ? 'dark:bg-darkColor dark:text-lightColor bg-lightColor text-darkColor'
                                     : 'dark:text-lightColor hover:bg-lightColorHover dark:hover:bg-darkColorHover',
                                 'block rounded-md px-3 py-2 text-base font-medium'
                             )}
@@ -122,3 +122,5 @@ export default function NavbarNormal() {
         </nav>
     );
 }
+
+export default NavbarNormal;
