@@ -108,7 +108,7 @@ const HomePage = () => {
                 <section id="skills" className="mt-12 py-8">
                     <h2 className="text-2xl font-semibold text-center mb-3">Skills</h2>
                     <motion.div
-                        className="max-w-7xl mx-auto px-4"
+                        className="max-w-7xl mx-auto px-4 lg:px-8"
                         initial={{ opacity: 0, y: 100 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -129,45 +129,74 @@ const HomePage = () => {
                 {/* Proyectos destacados */}
                 <section id="featured-projects" className="mt-12 py-8 px-4 sm:px-6 lg:px-8">
                     <h2 className="text-2xl font-semibold text-center mb-6">Featured Projects</h2>
-                    <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <div className="bg-lightColorHF dark:bg-darkColorHF rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                            <div className="relative w-full h-64 sm:h-72 lg:h-80">
-                                <img src={`${BASE_URL}img/project-move.png`} alt="Move Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                    <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                        <motion.div
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                    <img src={`${BASE_URL}img/project-move.png`} alt="Move Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                </div>
+                                <div className="p-4">
+                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Move</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mt-1">A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.</p>
+                                    <a href="https://move-repo-v1.netlify.app/movie-catalog" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                </div>
                             </div>
-                            <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Move</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mt-1">A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.</p>
-                                <a href="https://move-repo-v1.netlify.app/movie-catalog" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                    <img src={`${BASE_URL}img/project-todo.png`} alt="Todo Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                </div>
+                                <div className="p-4">
+                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Todo List</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mt-1">A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.</p>
+                                    <a href="https://todo-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                </div>
                             </div>
-                        </div>
-                        <div className="bg-lightColorHF dark:bg-darkColorHF rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                            <div className="relative w-full h-64 sm:h-72 lg:h-80">
-                                <img src={`${BASE_URL}img/project-todo.png`} alt="Todo Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                    <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Digital Clock Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                </div>
+                                <div className="p-4">
+                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Digital Clock</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mt-1">A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.</p>
+                                    <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                </div>
                             </div>
-                            <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Todo List</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mt-1">A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.</p>
-                                <a href="https://todo-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                    <img src={`${BASE_URL}img/project-ac.png`} alt="Attendance Control" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                </div>
+                                <div className="p-4">
+                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Attendance Control</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Plataforma de control de asistencia y gestión de incidencias desarrollada para la empresa. Implementada con React JS + Vite JS + React Router + Redux y backend en PHP con SQL Server.</p>
+                                    {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
+                                    <p className="mt-3 text-gray-600 dark:text-gray-400">
+                                        <strong className="text-red-500 font-semibold">Nota:</strong> Este proyecto no está disponible públicamente ya que fue desarrollado en los servidores internos de la empresa.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="bg-lightColorHF dark:bg-darkColorHF rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                            <div className="relative w-full h-64 sm:h-72 lg:h-80">
-                                <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Digital Clock Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                    <img src={`${BASE_URL}img/project-omnia.png`} alt="Omnia" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                </div>
+                                <div className="p-4">
+                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Omnia</h3>
+                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Herramienta para el control de rendimiento mensual de operadores y vendedores. Desarrollada con JavaScript puro y jQuery para el frontend, y PHP con SQL Server para el backend.</p>
+                                    {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
+                                    <p className="mt-3 text-gray-600 dark:text-gray-400">
+                                        <strong className="text-red-500 font-semibold">Nota:</strong> Este proyecto no está disponible públicamente ya que fue desarrollado en los servidores internos de la empresa.
+                                    </p>
+                                </div>
                             </div>
-                            <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Digital Clock</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mt-1">A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.</p>
-                                <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                            </div>
-                        </div>
-                        {/* Añade más proyectos aquí */}
-                    </motion.div>
+                            {/* Añade más proyectos aquí */}
+                        </motion.div>
+                    </div>
                 </section>
+
 
                 {/* Llamada a la acción */}
                 <section id="call-to-action" className="text-center mt-12 py-8">
