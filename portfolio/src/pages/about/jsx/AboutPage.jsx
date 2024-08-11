@@ -87,7 +87,7 @@ const AboutPage = () => {
                         </h2>
                         <div className="bg-lightColorHF dark:bg-darkColorHF p-4 rounded-lg shadow-md">
                             <p className="text-base">
-                                Si deseas ponerte en contacto conmigo, no dudes en enviarme un correo a <a href="mailto:example@example.com" className="text-blue-500">example@example.com</a> o seguirme en mis redes sociales.
+                                Si deseas ponerte en contacto conmigo, no dudes en enviarme un correo a <a href="mailto:johncrotf2@gmail.com" className="text-blue-500">example@example.com</a> o seguirme en mis redes sociales.
                             </p>
                         </div>
                     </section>
