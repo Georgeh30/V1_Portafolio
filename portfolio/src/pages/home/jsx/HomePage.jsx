@@ -19,18 +19,18 @@ const skills = [
     { name: 'PHP', icon: <SiPhp className="text-blue-700 text-4xl" /> },
     { name: 'Git', icon: <FaGitAlt className="text-orange-600 text-4xl" /> },
     { name: 'GitHub', icon: <FaGithub className="text-black text-4xl" /> },
-    { name: 'JQuery', icon: <SiJquery className="text-blue-600 text-4xl" /> },
-    { name: 'Java', icon: <FaJava className="text-red-600 text-4xl" /> },
-    { name: 'Python', icon: <SiPython className="text-yellow-500 text-4xl" /> },
-    { name: 'Django', icon: <SiDjango className="text-green-600 text-4xl" /> },
+    // { name: 'JQuery', icon: <SiJquery className="text-blue-600 text-4xl" /> },
+    // { name: 'Java', icon: <FaJava className="text-red-600 text-4xl" /> },
+    // { name: 'Python', icon: <SiPython className="text-yellow-500 text-4xl" /> },
+    // { name: 'Django', icon: <SiDjango className="text-green-600 text-4xl" /> },
     { name: 'REST API', icon: <FaServer className="text-blue-500 text-4xl" /> },
     { name: 'Tailwind', icon: <SiTailwindcss className="text-blue-500 text-4xl" /> },
     { name: 'Bootstrap', icon: <SiBootstrap className="text-purple-600 text-4xl" /> },
     { name: 'MUI', icon: <SiMui className="text-blue-600 text-4xl" /> },
     { name: 'Webpack', icon: <SiWebpack className="text-blue-600 text-4xl" /> },
-    { name: 'Babel', icon: <SiBabel className="text-yellow-500 text-4xl" /> },
+    // { name: 'Babel', icon: <SiBabel className="text-yellow-500 text-4xl" /> },
     { name: 'MySQL', icon: <SiMysql className="text-blue-600 text-4xl" /> },
-    { name: 'SQLite', icon: <SiSqlite className="text-blue-600 text-4xl" /> },
+    // { name: 'SQLite', icon: <SiSqlite className="text-blue-600 text-4xl" /> },
     { name: 'SQL Server', icon: <SiMicrosoftsqlserver className="text-red-600 text-4xl" /> }
 ];
 
@@ -41,16 +41,16 @@ const HomePage = () => {
         <MainLayout>
             <div>
                 {/* Introducción breve */}
-                <section id="intro" className="text-center py-12">
+                <section id="intro" className="text-center py-12 px-4">
                     <motion.h1
-                        className="text-4xl font-bold"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold"
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
                         <ReactTyped
                             strings={[
-                                "Hello, I'm Jorge Alvarado Garcia.",
+                                "Hello, I'm Jorge Alvarado",
                                 "FullStack Web Developer",
                                 "Web developer with experience in modern technologies."
                             ]}
@@ -64,7 +64,7 @@ const HomePage = () => {
                     </motion.h1>
 
                     <motion.p
-                        className="mt-4 text-xl"
+                        className="mt-4 text-lg sm:text-xl md:text-2xl"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.5 }}
@@ -78,7 +78,6 @@ const HomePage = () => {
                         />
                     </motion.p>
                 </section>
-
 
                 {/* Foto de perfil */}
                 <section id="profile-pic" className="flex justify-center mt-8">
@@ -114,7 +113,7 @@ const HomePage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-4">
                             {skills.map((skill, index) => (
                                 <div key={index} className="bg-lightColorHF dark:bg-darkColorHF skill-card p-4 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
                                     <div className="icon-container mb-2">
@@ -128,8 +127,8 @@ const HomePage = () => {
                 </section>
 
                 {/* Proyectos destacados */}
-                <section id="featured-projects" className="ml-6 mr-6 mt-12 py-8">
-                    <h2 className="text-2xl font-semibold text-center mb-3">Featured Projects</h2>
+                <section id="featured-projects" className="mt-12 py-8 px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-2xl font-semibold text-center mb-6">Featured Projects</h2>
                     <motion.div
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
                         initial={{ opacity: 0, y: 100 }}
@@ -137,49 +136,54 @@ const HomePage = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="bg-lightColorHF dark:bg-darkColorHF rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                            <div className="relative h-80"> {/* Cambia el tamaño de altura aquí para hacerlo más cuadrado */}
-                                <img src={`${BASE_URL}img/project-move.png`} alt="Project Image 2" className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="relative w-full h-64 sm:h-72 lg:h-80">
+                                <img src={`${BASE_URL}img/project-move.png`} alt="Move Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
                             </div>
                             <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Proyecto 2</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mt-1">Brief description of the project goes here.</p>
-                                <a href="/projects/project-2" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Move</h3>
+                                <p className="text-gray-600 dark:text-gray-400 mt-1">A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.</p>
+                                <a href="https://move-repo-v1.netlify.app/movie-catalog" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
                             </div>
                         </div>
                         <div className="bg-lightColorHF dark:bg-darkColorHF rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                            <div className="relative h-80">
-                                <img src={`${BASE_URL}img/project-todo.png`} alt="Project Image 1" className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="relative w-full h-64 sm:h-72 lg:h-80">
+                                <img src={`${BASE_URL}img/project-todo.png`} alt="Todo Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
                             </div>
                             <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Proyecto 1</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mt-1">Brief description of the project goes here.</p>
-                                <a href="/projects/project-1" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Todo List</h3>
+                                <p className="text-gray-600 dark:text-gray-400 mt-1">A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.</p>
+                                <a href="https://todo-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
                             </div>
                         </div>
                         <div className="bg-lightColorHF dark:bg-darkColorHF rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                            <div className="relative h-80">
-                                <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Project Image 2" className="absolute inset-0 w-full h-full object-cover" />
+                            <div className="relative w-full h-64 sm:h-72 lg:h-80">
+                                <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Digital Clock Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
                             </div>
                             <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Proyecto 2</h3>
-                                <p className="text-gray-600 dark:text-gray-400 mt-1">Brief description of the project goes here.</p>
-                                <a href="/projects/project-2" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Digital Clock</h3>
+                                <p className="text-gray-600 dark:text-gray-400 mt-1">A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.</p>
+                                <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
                             </div>
                         </div>
                         {/* Añade más proyectos aquí */}
                     </motion.div>
                 </section>
 
-
                 {/* Llamada a la acción */}
                 <section id="call-to-action" className="text-center mt-12 py-8">
-                    <a href="/Portfolio/contact" className="px-6 py-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition">Contact me</a>
+                    <div className="container mx-auto px-4">
+                        <a
+                            href="/Portfolio/contact"
+                            className="inline-block px-6 py-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300"
+                        >
+                            Contact me
+                        </a>
+                    </div>
                 </section>
 
                 {/* Testimonios */}
-                <section id="testimonials" className="ml-6 mr-6 mt-12 py-8">
+                {/* <section id="testimonials" className="ml-6 mr-6 mt-12 py-8">
                     <h2 className="text-2xl font-semibold text-center mb-3">Testimonials</h2>
-                    {/* <div className="overflow-hidden mt-4"> */}
                     <motion.div
                         className="flex space-x-4"
                         initial={{ opacity: 0, y: 100 }}
@@ -195,10 +199,7 @@ const HomePage = () => {
                             <p className="mt-2 font-semibold">- Cliente 2</p>
                         </div>
                     </motion.div>
-                    {/* </div> */}
-                </section>
-
-
+                </section> */}
 
             </div>
         </MainLayout>
