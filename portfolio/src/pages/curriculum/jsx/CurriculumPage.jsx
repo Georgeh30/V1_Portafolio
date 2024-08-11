@@ -351,7 +351,7 @@ const CurriculumPage = () => {
                                 <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-md">
                                     <ul className="list-disc list-inside space-y-2">
                                         <li>Español (Nativo)</li>
-                                        <li>Inglés (Avanzado)</li>
+                                        <li>Inglés (Básico)</li>
                                     </ul>
                                 </div>
                             </div>
