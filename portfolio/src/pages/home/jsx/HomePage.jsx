@@ -64,7 +64,7 @@ const HomePage = () => {
                     </motion.h1>
 
                     <motion.p
-                        className="mt-4 text-lg sm:text-xl md:text-2xl"
+                        className="mt-4 text-lg sm:text-xl md:text-3xl"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.5 }}
@@ -106,7 +106,7 @@ const HomePage = () => {
 
                 {/* Resumen de habilidades */}
                 <section id="skills" className="mt-12 py-8">
-                    <h2 className="text-2xl font-semibold text-center mb-3">Skills</h2>
+                    <h2 className="text-3xl font-semibold text-center mb-3">Skills</h2>
                     <motion.div
                         className="max-w-7xl mx-auto px-4 lg:px-8"
                         initial={{ opacity: 0, y: 100 }}
@@ -128,7 +128,7 @@ const HomePage = () => {
 
                 {/* Proyectos destacados */}
                 <section id="featured-projects" className="mt-12 py-8 px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-2xl font-semibold text-center mb-6">Featured Projects</h2>
+                    <h2 className="text-3xl font-semibold text-center mb-6">Featured Projects</h2>
                     <div className="max-w-7xl mx-auto px-4 lg:px-8">
                         <motion.div
                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -212,7 +212,7 @@ const HomePage = () => {
 
                 {/* Testimonios */}
                 {/* <section id="testimonials" className="ml-6 mr-6 mt-12 py-8">
-                    <h2 className="text-2xl font-semibold text-center mb-3">Testimonials</h2>
+                    <h2 className="text-3xl font-semibold text-center mb-3">Testimonials</h2>
                     <motion.div
                         className="flex space-x-4"
                         initial={{ opacity: 0, y: 100 }}
