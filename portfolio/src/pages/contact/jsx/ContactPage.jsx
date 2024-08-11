@@ -1,11 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react";
+import MainLayout from '@layouts/jsx/MainLayout';
 
 // Importaciones de Formik y Yup
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
-// Otros imports
-import MainLayout from '@layouts/jsx/MainLayout';
 
 // Definición del esquema de validación con Yup
 const validationSchema = Yup.object({
@@ -18,6 +16,31 @@ const ContactPage = () => {
     // Estado para manejar el estado del formulario
     const [formStatus, setFormStatus] = useState(null);
 
+    // Manejo del envío del formulario
+    const handleSubmit = async (values, { resetForm }) => {
+        try {
+            const response = await fetch('https://formspree.io/f/xpwarjvl', { // Cambia 'your_form_id' por el ID de tu formulario
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(values),
+            });
+
+            if (response.ok) {
+                setFormStatus('success');
+                resetForm();
+            } else {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Error al enviar el formulario');
+            }
+        } catch (error) {
+            console.error('Error al enviar el formulario:', error);
+            setFormStatus('error');
+        }
+    };
+
     return (
         <MainLayout>
             <div className="p-6 max-w-2xl mx-auto">
@@ -27,20 +50,10 @@ const ContactPage = () => {
                 <Formik
                     initialValues={{ name: '', email: '', message: '' }}
                     validationSchema={validationSchema}
-                    onSubmit={(values, { resetForm }) => {
-                        setFormStatus('success');
-                        resetForm();
-                    }}
+                    onSubmit={handleSubmit}
                 >
                     {({ isSubmitting }) => (
-                        <Form 
-                            name="contact"
-                            method="POST"
-                            // netlify="true"
-                            data-netlify="true" // Asegúrate de que esto esté correctamente configurado
-                            className="space-y-4"
-                        >
-                            <input type="hidden" name="form-name" value="contact" />
+                        <Form className="space-y-4">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-gray-300">Nombre</label>
                                 <Field
