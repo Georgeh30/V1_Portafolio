@@ -18,7 +18,7 @@ const CurriculumPage = () => {
                             <a
                                 href={`${BASE_URL}files/cv.pdf`}
                                 download="Curriculum_Vitae.pdf"
-                                className="inline-block px-6 py-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors duration-300"
+                                className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-300"
                             >
                                 Descargar CV en PDF
                             </a>
