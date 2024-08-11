@@ -95,7 +95,7 @@ const ContactPage = () => {
                     <p className="mt-2">Sígueme en redes sociales: [Íconos de redes sociales]</p>
                 </div>
             </div>
-            {/* <form name="contact" netlify="true">
+            <form name="contact" netlify="true">
   <p>
     <label>Name <input type="text" name="name" /></label>
   </p>
@@ -105,7 +105,7 @@ const ContactPage = () => {
   <p>
     <button type="submit">Send</button>
   </p>
-</form> */}
+</form>
         </MainLayout>
     );
 };
