@@ -99,10 +99,10 @@ const CurriculumPage = () => {
                                                 <h3 className="text-lg font-semibold">JavaScript</h3>
                                                 <div className="relative pt-1">
                                                     <div className="flex items-center justify-between text-xs font-semibold">
-                                                        <span>Experto</span>
+                                                        <span>Intermedio</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '90%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-500"></div>
+                                                        <div style={{ width: '60%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-yellow-500"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -116,10 +116,10 @@ const CurriculumPage = () => {
                                                 <h3 className="text-lg font-semibold">React JS</h3>
                                                 <div className="relative pt-1">
                                                     <div className="flex items-center justify-between text-xs font-semibold">
-                                                        <span>Avanzado</span>
+                                                        <span>Intermedio</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '80%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
+                                                        <div style={{ width: '50%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,10 +133,10 @@ const CurriculumPage = () => {
                                                 <h3 className="text-lg font-semibold">Python</h3>
                                                 <div className="relative pt-1">
                                                     <div className="flex items-center justify-between text-xs font-semibold">
-                                                        <span>Intermedio</span>
+                                                        <span>Básico</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '70%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                                                        <div style={{ width: '20%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,7 +155,7 @@ const CurriculumPage = () => {
                                                         <span>Intermedio</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '60%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
+                                                        <div style={{ width: '40%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,10 +169,10 @@ const CurriculumPage = () => {
                                                 <h3 className="text-lg font-semibold">Node.js</h3>
                                                 <div className="relative pt-1">
                                                     <div className="flex items-center justify-between text-xs font-semibold">
-                                                        <span>Avanzado</span>
+                                                        <span>Intermedio</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '80%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
+                                                        <div style={{ width: '40%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -186,10 +186,10 @@ const CurriculumPage = () => {
                                                 <h3 className="text-lg font-semibold">SQL Server</h3>
                                                 <div className="relative pt-1">
                                                     <div className="flex items-center justify-between text-xs font-semibold">
-                                                        <span>Avanzado</span>
+                                                        <span>Intermedio</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '80%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-700"></div>
+                                                        <div style={{ width: '50%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-700"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -203,10 +203,10 @@ const CurriculumPage = () => {
                                                 <h3 className="text-lg font-semibold">Django</h3>
                                                 <div className="relative pt-1">
                                                     <div className="flex items-center justify-between text-xs font-semibold">
-                                                        <span>Intermedio</span>
+                                                        <span>Básico</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '60%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-700"></div>
+                                                        <div style={{ width: '20%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-700"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -224,7 +224,7 @@ const CurriculumPage = () => {
                                                         <span>Intermedio</span>
                                                     </div>
                                                     <div className="flex h-2 mb-2 overflow-hidden text-xs bg-gray-200 rounded">
-                                                        <div style={{ width: '60%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-600"></div>
+                                                        <div style={{ width: '50%' }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-600"></div>
                                                     </div>
                                                 </div>
                                             </div>
