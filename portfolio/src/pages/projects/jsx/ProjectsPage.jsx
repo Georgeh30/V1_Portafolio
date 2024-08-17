@@ -1,147 +1,265 @@
 import MainLayout from '@layouts/jsx/MainLayout';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { useState, useMemo } from 'react';
 
-const projects = [
+import config from '@config/config';
+
+const BASE_URL = config.BASE_URL;
+
+const initialProjects = [
     {
         id: 1,
-        title: 'School Management System',
-        description: 'Developed with React and Node.js to automate and manage the daily operations of an educational institution.',
-        technologies: ['React', 'Node.js', 'MongoDB'],
-        imageUrl: '/images/school-management.png',
-        demoUrl: 'https://demo-school-management.com',
-        repoUrl: 'https://github.com/user/school-management',
+        title: 'Movie Catalog',
+        description: 'A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.',
+        technologies: ['React', 'Tailwind CSS'],
+        imageUrl: `${BASE_URL}img/project-move.png`,
+        demoUrl: 'https://move-repo-v1.netlify.app/movie-catalog',
+        repoUrl: 'https://github.com/user/movie-catalog',
+        type: 'Catalog',
     },
     {
         id: 2,
-        title: 'E-Commerce Application',
-        description: 'A complete e-commerce platform with functionalities including shopping cart, payment gateway, and admin panel.',
-        technologies: ['React', 'Tailwind CSS', 'REST API'],
-        imageUrl: '/images/e-commerce.png',
-        demoUrl: 'https://demo-e-commerce.com',
-        repoUrl: 'https://github.com/user/e-commerce',
+        title: 'Todo List',
+        description: 'A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.',
+        technologies: ['React', 'Redux', 'Tailwind CSS'],
+        imageUrl: `${BASE_URL}img/project-todo.png`,
+        demoUrl: 'https://todo-repo-v1.netlify.app/',
+        repoUrl: 'https://github.com/user/todo-list',
+        type: 'Task Management',
     },
     {
         id: 3,
-        title: 'Real-Time Task Management',
-        description: 'Real-time task management application with notifications and instant updates using WebSockets.',
-        technologies: ['React', 'Socket.io', 'Express'],
-        imageUrl: '/images/task-manager.png',
-        demoUrl: 'https://demo-task-manager.com',
-        repoUrl: 'https://github.com/user/task-manager',
+        title: 'Digital Clock',
+        description: 'A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.',
+        technologies: ['React', 'Tailwind CSS'],
+        imageUrl: `${BASE_URL}img/project-digital-clock.png`,
+        demoUrl: 'https://digital-clock-repo-v1.netlify.app/',
+        repoUrl: 'https://github.com/user/digital-clock',
+        type: 'Clock',
     },
     {
         id: 4,
-        title: 'Personal Blog Application',
-        description: 'A personal blog with features for article publishing, commenting, and content management.',
-        technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-        imageUrl: '/images/personal-blog.png',
-        demoUrl: 'https://demo-personal-blog.com',
-        repoUrl: 'https://github.com/user/personal-blog',
+        title: 'Attendance Control',
+        description: 'Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.',
+        technologies: ['React JS', 'Vite JS', 'React Router', 'Redux', 'PHP', 'SQL Server'],
+        imageUrl: `${BASE_URL}img/project-ac.png`,
+        demoUrl: '',
+        repoUrl: '',
+        type: 'Internal Tool',
+        note: 'This project is not publicly available as it was developed on the company\'s internal servers.',
     },
     {
         id: 5,
-        title: 'Data Analysis Dashboard',
-        description: 'Interactive dashboard for data visualization using charts and tables, ideal for business data analysis.',
-        technologies: ['React', 'D3.js', 'Chart.js'],
-        imageUrl: '/images/data-dashboard.png',
-        demoUrl: 'https://demo-data-dashboard.com',
-        repoUrl: 'https://github.com/user/data-dashboard',
+        title: 'Omnia',
+        description: 'Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.',
+        technologies: ['JavaScript', 'jQuery', 'PHP', 'SQL Server'],
+        imageUrl: `${BASE_URL}img/project-omnia.png`,
+        demoUrl: '',
+        repoUrl: '',
+        type: 'Internal Tool',
+        note: 'This project is not publicly available as it was developed on the company\'s internal servers.',
     },
 ];
 
 const ProjectsPage = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [projects, setProjects] = useState(initialProjects);
+    const [selectedSearchMethod, setSelectedSearchMethod] = useState('search');
+    const [selectedType, setSelectedType] = useState('All');
+    const [searchTerm, setSearchTerm] = useState('');
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
-        }, 5000); // Change project every 5 seconds
+    // Get unique project types
+    const projectTypes = useMemo(() => {
+        const types = new Set(['All']);
+        projects.forEach(project => types.add(project.type));
+        return Array.from(types);
+    }, [projects]);
 
-        return () => clearInterval(interval);
-    }, []);
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+    const handleSearchMethodChange = (method) => {
+        setSelectedSearchMethod(method);
     };
 
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? projects.length - 1 : prevIndex - 1
-        );
+    const handleTypeChange = (event) => {
+        setSelectedType(event.target.value);
     };
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
+    const handleButtonClick = (type) => {
+        setSelectedType(type);
+    };
+
+    const filteredProjects = projects.filter((project) => {
+        const matchesType = selectedType === 'All' || project.type === selectedType;
+        const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase());
+        return matchesType && matchesSearch;
+    });
 
     return (
         <MainLayout>
-            <section className="py-10 bg-light-background dark:bg-dark-background">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-10">
-                        <motion.h1 
-                            initial={{ opacity: 0, y: 20 }} 
-                            animate={{ opacity: 1, y: 0 }} 
-                            transition={{ duration: 0.5 }}
-                            className="text-4xl font-bold text-light-text dark:text-dark-text mb-4"
+            <section className="relative bg-lightColor dark:bg-darkColor min-h-screen p-4 md:p-8">
+                {/* Search Method Selection */}
+                <div className="mb-6">
+                    <div className="flex flex-wrap gap-4 mb-4">
+                        <button
+                            onClick={() => handleSearchMethodChange('search')}
+                            className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
+                                selectedSearchMethod === 'search'
+                                    ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                    : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                            }`}
                         >
-                            Featured Projects
-                        </motion.h1>
-                        <p className="text-lg text-light-subtext dark:text-dark-subtext">
-                            Discover some of the most notable projects I have worked on. Each project showcases different aspects of my experience and skills.
-                        </p>
+                            Text Search
+                        </button>
+                        <button
+                            onClick={() => handleSearchMethodChange('select')}
+                            className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
+                                selectedSearchMethod === 'select'
+                                    ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                    : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                            }`}
+                        >
+                            Select Search
+                        </button>
+                        <button
+                            onClick={() => handleSearchMethodChange('buttons')}
+                            className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
+                                selectedSearchMethod === 'buttons'
+                                    ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                    : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                            }`}
+                        >
+                            Button Search
+                        </button>
                     </div>
 
-                    <div className="relative">
-                        <div className="overflow-hidden">
-                            <motion.div
-                                key={projects[currentIndex].id}
-                                initial={{ opacity: 0, x: 100 }} 
-                                animate={{ opacity: 1, x: 0 }} 
-                                exit={{ opacity: 0, x: -100 }} 
-                                transition={{ duration: 0.5 }}
-                                className="dark:bg-darkColorHF bg-lightColorHF p-6 rounded-lg shadow-lg"
+                    {/* Display Selected Search Method */}
+                    {selectedSearchMethod === 'search' && (
+                        <div className="mb-6">
+                            <input
+                                type="text"
+                                value={searchTerm}
+                                onChange={handleSearchChange}
+                                placeholder="Search projects..."
+                                className="p-3 border rounded-lg shadow-md dark:bg-gray-800 dark:text-white dark:border-gray-600 h-10"
+                            />
+                        </div>
+                    )}
+
+                    {selectedSearchMethod === 'select' && (
+                        <div className="mb-6">
+                            <select
+                                value={selectedType}
+                                onChange={handleTypeChange}
+                                className="sm:w-64 md:w-80 lg:w-96 p-3 border rounded-lg shadow-md dark:bg-gray-800 dark:text-white dark:border-gray-600 h-11"
                             >
-                                <img 
-                                    src={projects[currentIndex].imageUrl} 
-                                    alt={projects[currentIndex].title} 
-                                    className="dark:bg-darkColorHover bg-lightColorHover h-64 w-full object-cover rounded-md mb-4"
+                                {projectTypes.map((type) => (
+                                    <option key={type} value={type}>
+                                        {type}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+
+                    {selectedSearchMethod === 'buttons' && (
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            {projectTypes.map((type) => (
+                                <button
+                                    key={type}
+                                    onClick={() => handleButtonClick(type)}
+                                    className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
+                                        selectedType === type
+                                            ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                            : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                                    }`}
+                                >
+                                    {type}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+                {/* Project List */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredProjects.map((project) => (
+                        <motion.div
+                            key={project.id}
+                            className="relative bg-lightColorHF dark:bg-darkColorHF p-4 rounded-lg shadow-lg overflow-hidden"
+                            whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300 } }}
+                        >
+                            <div className="relative group">
+                                <img
+                                    src={project.imageUrl}
+                                    alt={project.title}
+                                    className="w-full h-48 object-cover rounded-lg mb-4"
                                 />
-                                <h2 className="text-2xl font-semibold mb-2 text-light-text dark:text-dark-text">{projects[currentIndex].title}</h2>
-                                <p className="text-light-subtext dark:text-dark-subtext mb-4">{projects[currentIndex].description}</p>
-                                <div className="flex flex-wrap gap-2 mb-4">
-                                    {projects[currentIndex].technologies.map((tech, index) => (
-                                        <span 
-                                            key={index} 
-                                            className="dark:bg-darkColorHover bg-lightColorHover text-sm text-light-tag-text dark:text-dark-tag-text px-2 py-1 rounded"
-                                        >
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <a href={projects[currentIndex].demoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
+                                {/* Hover effect */}
+                                {project.demoUrl && (
+                                    <a
+                                        href={project.demoUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-60 text-white text-lg font-bold transition-opacity duration-300"
+                                    >
                                         View Demo
                                     </a>
-                                    <a href={projects[currentIndex].repoUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
-                                        View Code
-                                    </a>
+                                )}
+                            </div>
+                            <h3 className="text-lg font-bold text-darkColor dark:text-lightColor mb-2">
+                                {project.title}
+                            </h3>
+                            <p className="text-sm text-darkColor dark:text-lightColor mb-4">
+                                {project.description}
+                            </p>
+                            <div className="flex flex-wrap gap-2 mb-4">
+                                {project.technologies.map((tech) => (
+                                    <span
+                                        key={tech}
+                                        className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-1 px-2 rounded-full text-xs"
+                                    >
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                            {project.repoUrl || project.demoUrl ? (
+                                <div className="flex justify-between mt-2">
+                                    {project.repoUrl && (
+                                        <a
+                                            href={project.repoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                                        >
+                                            <FaGithub className="mr-2" />
+                                            View Repository
+                                        </a>
+                                    )}
+                                    {project.demoUrl && (
+                                        <a
+                                            href={project.demoUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                                        >
+                                            <FaExternalLinkAlt className="mr-2" />
+                                            View Demo
+                                        </a>
+                                    )}
                                 </div>
-                            </motion.div>
-                        </div>
-
-                        {/* Carousel Controls */}
-                        <button 
-                            onClick={handlePrev} 
-                            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-light-control dark:bg-dark-control p-2 rounded-full shadow-lg focus:outline-none"
-                        >
-                            <FaArrowLeft className="text-light-control-text dark:text-dark-control-text" />
-                        </button>
-                        <button 
-                            onClick={handleNext} 
-                            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-light-control dark:bg-dark-control p-2 rounded-full shadow-lg focus:outline-none"
-                        >
-                            <FaArrowRight className="text-light-control-text dark:text-dark-control-text" />
-                        </button>
-                    </div>
+                            ) : null}
+                            {project.note && (
+                                <p className="text-sm mt-4">
+                                    <span className="text-red-500 font-bold">Note:</span>
+                                    <span className="text-black dark:text-gray-200 font-bold ml-1">
+                                        {project.note}
+                                    </span>
+                                </p>
+                            )}
+                        </motion.div>
+                    ))}
                 </div>
             </section>
         </MainLayout>
