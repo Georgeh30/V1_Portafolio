@@ -172,10 +172,10 @@ const HomePage = () => {
                                 </div>
                                 <div className="p-4">
                                     <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Attendance Control</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Plataforma de control de asistencia y gestión de incidencias desarrollada para la empresa. Implementada con React JS + Vite JS + React Router + Redux y backend en PHP con SQL Server.</p>
+                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.</p>
                                     {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
                                     <p className="mt-3 text-gray-600 dark:text-gray-400">
-                                        <strong className="text-red-500 font-semibold">Nota:</strong> Este proyecto no está disponible públicamente ya que fue desarrollado en los servidores internos de la empresa.
+                                        <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
                                     </p>
                                 </div>
                             </div>
@@ -185,13 +185,14 @@ const HomePage = () => {
                                 </div>
                                 <div className="p-4">
                                     <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Omnia</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Herramienta para el control de rendimiento mensual de operadores y vendedores. Desarrollada con JavaScript puro y jQuery para el frontend, y PHP con SQL Server para el backend.</p>
+                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.</p>
                                     {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
                                     <p className="mt-3 text-gray-600 dark:text-gray-400">
-                                        <strong className="text-red-500 font-semibold">Nota:</strong> Este proyecto no está disponible públicamente ya que fue desarrollado en los servidores internos de la empresa.
+                                        <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
                                     </p>
                                 </div>
                             </div>
+
                             {/* Añade más proyectos aquí */}
                         </motion.div>
                     </div>
