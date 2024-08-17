@@ -7,6 +7,27 @@ import config from '@config/config';
 
 const BASE_URL = config.BASE_URL;
 
+const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: "-100vw"
+    },
+    in: {
+      opacity: 1,
+      x: 0
+    },
+    out: {
+      opacity: 0,
+      x: "100vw"
+    }
+};  
+
+const pageTransition = {
+    type: "tween",
+    ease: "circOut",
+    duration: 1
+};
+
 const initialProjects = [
     {
         id: 1,
@@ -99,169 +120,173 @@ const ProjectsPage = () => {
 
     return (
         <MainLayout>
-            <section className="relative bg-lightColor dark:bg-darkColor min-h-screen p-4 md:p-8">
-                {/* Search Method Selection */}
-                <div className="mb-6">
-                    <div className="flex flex-wrap gap-4 mb-4">
-                        <button
-                            onClick={() => handleSearchMethodChange('search')}
-                            className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
-                                selectedSearchMethod === 'search'
-                                    ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
-                                    : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
-                            }`}
-                        >
-                            Text Search
-                        </button>
-                        <button
-                            onClick={() => handleSearchMethodChange('select')}
-                            className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
-                                selectedSearchMethod === 'select'
-                                    ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
-                                    : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
-                            }`}
-                        >
-                            Select Search
-                        </button>
-                        <button
-                            onClick={() => handleSearchMethodChange('buttons')}
-                            className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
-                                selectedSearchMethod === 'buttons'
-                                    ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
-                                    : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
-                            }`}
-                        >
-                            Button Search
-                        </button>
-                    </div>
-
-                    {/* Display Selected Search Method */}
-                    {selectedSearchMethod === 'search' && (
-                        <div className="mb-6">
-                            <input
-                                type="text"
-                                value={searchTerm}
-                                onChange={handleSearchChange}
-                                placeholder="Search projects..."
-                                className="p-3 border rounded-lg shadow-md dark:bg-gray-800 dark:text-white dark:border-gray-600 h-10"
-                            />
-                        </div>
-                    )}
-
-                    {selectedSearchMethod === 'select' && (
-                        <div className="mb-6">
-                            <select
-                                value={selectedType}
-                                onChange={handleTypeChange}
-                                className="sm:w-64 md:w-80 lg:w-96 p-3 border rounded-lg shadow-md dark:bg-gray-800 dark:text-white dark:border-gray-600 h-11"
-                            >
-                                {projectTypes.map((type) => (
-                                    <option key={type} value={type}>
-                                        {type}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                    )}
-
-                    {selectedSearchMethod === 'buttons' && (
-                        <div className="flex flex-wrap gap-2 mb-6">
-                            {projectTypes.map((type) => (
-                                <button
-                                    key={type}
-                                    onClick={() => handleButtonClick(type)}
-                                    className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${
-                                        selectedType === type
-                                            ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
-                                            : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+            <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+            >
+                <section className="relative bg-lightColor dark:bg-darkColor min-h-screen p-4 md:p-8">
+                    {/* Search Method Selection */}
+                    <div className="mb-6">
+                        <div className="flex flex-wrap gap-4 mb-4">
+                            <button
+                                onClick={() => handleSearchMethodChange('search')}
+                                className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${selectedSearchMethod === 'search'
+                                        ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                        : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
                                     }`}
-                                >
-                                    {type}
-                                </button>
-                            ))}
+                            >
+                                Text Search
+                            </button>
+                            <button
+                                onClick={() => handleSearchMethodChange('select')}
+                                className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${selectedSearchMethod === 'select'
+                                        ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                        : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                                    }`}
+                            >
+                                Select Search
+                            </button>
+                            <button
+                                onClick={() => handleSearchMethodChange('buttons')}
+                                className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${selectedSearchMethod === 'buttons'
+                                        ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                        : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                                    }`}
+                            >
+                                Button Search
+                            </button>
                         </div>
-                    )}
-                </div>
-                {/* Project List */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredProjects.map((project) => (
-                        <motion.div
-                            key={project.id}
-                            className="relative bg-lightColorHF dark:bg-darkColorHF p-4 rounded-lg shadow-lg overflow-hidden"
-                            whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300 } }}
-                        >
-                            <div className="relative group">
-                                <img
-                                    src={project.imageUrl}
-                                    alt={project.title}
-                                    className="w-full h-48 object-cover rounded-lg mb-4"
+
+                        {/* Display Selected Search Method */}
+                        {selectedSearchMethod === 'search' && (
+                            <div className="mb-6">
+                                <input
+                                    type="text"
+                                    value={searchTerm}
+                                    onChange={handleSearchChange}
+                                    placeholder="Search projects..."
+                                    className="p-3 border rounded-lg shadow-md dark:bg-gray-800 dark:text-white dark:border-gray-600 h-10"
                                 />
-                                {/* Hover effect */}
-                                {project.demoUrl && (
-                                    <a
-                                        href={project.demoUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-60 text-white text-lg font-bold transition-opacity duration-300"
-                                    >
-                                        View Demo
-                                    </a>
-                                )}
                             </div>
-                            <h3 className="text-lg font-bold text-darkColor dark:text-lightColor mb-2">
-                                {project.title}
-                            </h3>
-                            <p className="text-sm text-darkColor dark:text-lightColor mb-4">
-                                {project.description}
-                            </p>
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {project.technologies.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-1 px-2 rounded-full text-xs"
+                        )}
+
+                        {selectedSearchMethod === 'select' && (
+                            <div className="mb-6">
+                                <select
+                                    value={selectedType}
+                                    onChange={handleTypeChange}
+                                    className="sm:w-64 md:w-80 lg:w-96 p-3 border rounded-lg shadow-md dark:bg-gray-800 dark:text-white dark:border-gray-600 h-11"
+                                >
+                                    {projectTypes.map((type) => (
+                                        <option key={type} value={type}>
+                                            {type}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        )}
+
+                        {selectedSearchMethod === 'buttons' && (
+                            <div className="flex flex-wrap gap-2 mb-6">
+                                {projectTypes.map((type) => (
+                                    <button
+                                        key={type}
+                                        onClick={() => handleButtonClick(type)}
+                                        className={`px-4 py-2 border rounded-lg transition-colors duration-300 ${selectedType === type
+                                                ? 'bg-blue-600 text-white border-blue-700 dark:bg-blue-500 dark:border-blue-600'
+                                                : 'bg-gray-200 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600'
+                                            }`}
                                     >
-                                        {tech}
-                                    </span>
+                                        {type}
+                                    </button>
                                 ))}
                             </div>
-                            {project.repoUrl || project.demoUrl ? (
-                                <div className="flex justify-between mt-2">
-                                    {project.repoUrl && (
-                                        <a
-                                            href={project.repoUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
-                                        >
-                                            <FaGithub className="mr-2" />
-                                            View Repository
-                                        </a>
-                                    )}
+                        )}
+                    </div>
+                    {/* Project List */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filteredProjects.map((project) => (
+                            <motion.div
+                                key={project.id}
+                                className="relative bg-lightColorHF dark:bg-darkColorHF p-4 rounded-lg shadow-lg overflow-hidden"
+                                whileHover={{ scale: 1.05, transition: { type: 'spring', stiffness: 300 } }}
+                            >
+                                <div className="relative group">
+                                    <img
+                                        src={project.imageUrl}
+                                        alt={project.title}
+                                        className="w-full h-48 object-cover rounded-lg mb-4"
+                                    />
+                                    {/* Hover effect */}
                                     {project.demoUrl && (
                                         <a
                                             href={project.demoUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                                            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-60 text-white text-lg font-bold transition-opacity duration-300"
                                         >
-                                            <FaExternalLinkAlt className="mr-2" />
                                             View Demo
                                         </a>
                                     )}
                                 </div>
-                            ) : null}
-                            {project.note && (
-                                <p className="text-sm mt-4">
-                                    <span className="text-red-500 font-bold">Note:</span>
-                                    <span className="text-black dark:text-gray-200 font-bold ml-1">
-                                        {project.note}
-                                    </span>
+                                <h3 className="text-lg font-bold text-darkColor dark:text-lightColor mb-2">
+                                    {project.title}
+                                </h3>
+                                <p className="text-sm text-darkColor dark:text-lightColor mb-4">
+                                    {project.description}
                                 </p>
-                            )}
-                        </motion.div>
-                    ))}
-                </div>
-            </section>
+                                <div className="flex flex-wrap gap-2 mb-4">
+                                    {project.technologies.map((tech) => (
+                                        <span
+                                            key={tech}
+                                            className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 py-1 px-2 rounded-full text-xs"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                                {project.repoUrl || project.demoUrl ? (
+                                    <div className="flex justify-between mt-2">
+                                        {project.repoUrl && (
+                                            <a
+                                                href={project.repoUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                                            >
+                                                <FaGithub className="mr-2" />
+                                                View Repository
+                                            </a>
+                                        )}
+                                        {project.demoUrl && (
+                                            <a
+                                                href={project.demoUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+                                            >
+                                                <FaExternalLinkAlt className="mr-2" />
+                                                View Demo
+                                            </a>
+                                        )}
+                                    </div>
+                                ) : null}
+                                {project.note && (
+                                    <p className="text-sm mt-4">
+                                        <span className="text-red-500 font-bold">Note:</span>
+                                        <span className="text-black dark:text-gray-200 font-bold ml-1">
+                                            {project.note}
+                                        </span>
+                                    </p>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+            </motion.div>
         </MainLayout>
     );
 };

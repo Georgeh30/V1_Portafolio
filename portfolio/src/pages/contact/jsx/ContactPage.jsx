@@ -2,6 +2,28 @@ import { useState, useEffect } from "react";
 import MainLayout from '@layouts/jsx/MainLayout';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { motion } from 'framer-motion';
+
+const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: "-100vw"
+    },
+    in: {
+      opacity: 1,
+      x: 0
+    },
+    out: {
+      opacity: 0,
+      x: "100vw"
+    }
+};  
+
+const pageTransition = {
+    type: "tween",
+    ease: "circOut",
+    duration: 1
+};
 
 // Validation schema using Yup
 const validationSchema = Yup.object({
@@ -52,6 +74,13 @@ const ContactPage = () => {
 
     return (
         <MainLayout>
+            <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+            >
             <div className="p-6 max-w-2xl mx-auto">
                 <h1 className="text-3xl font-bold mb-4 text-center">Contact</h1>
                 <p className="mb-6 text-center">I’m here to answer your questions! Fill out the form below or reach out via email.</p>
@@ -128,6 +157,7 @@ const ContactPage = () => {
                     <p className="mt-2">Email: <a href="mailto:johncrotf2@gmail.com" className="text-blue-600 dark:text-blue-400 hover:underline">johncrotf2@gmail.com</a></p>
                 </div>
             </div>
+            </motion.div>
         </MainLayout>
     );
 };

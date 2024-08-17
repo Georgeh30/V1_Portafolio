@@ -7,6 +7,7 @@ import { ReactTyped } from 'react-typed';
 import '@pages/home/css/styles-home.css';
 import config from '@config/config';
 
+
 const skills = [
     { name: 'HTML', icon: <FaHtml5 className="text-red-600 text-4xl" /> },
     { name: 'CSS', icon: <FaCss3Alt className="text-blue-600 text-4xl" /> },
@@ -34,185 +35,213 @@ const skills = [
     { name: 'SQL Server', icon: <SiMicrosoftsqlserver className="text-red-600 text-4xl" /> }
 ];
 
+const pageVariants = {
+    initial: {
+      opacity: 0,
+      x: "-100vw"
+    },
+    in: {
+      opacity: 1,
+      x: 0
+    },
+    out: {
+      opacity: 0,
+      x: "100vw"
+    }
+};  
+
+const pageTransition = {
+    type: "tween",
+    ease: "circOut",
+    duration: 1
+};
+
 const HomePage = () => {
     const BASE_URL = config.BASE_URL;
 
     return (
         <MainLayout>
-            <div>
-                {/* Introducción breve */}
-                <section id="intro" className="text-center py-12 px-4">
-                    <motion.h1
-                        className="text-3xl sm:text-4xl md:text-5xl font-bold"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                    >
-                        <ReactTyped
-                            strings={[
-                                "Hello, I'm Jorge Alvarado",
-                                "FullStack Web Developer",
-                                "Web developer with experience in modern technologies."
-                            ]}
-                            typeSpeed={50}
-                            backSpeed={25}
-                            backDelay={1000}
-                            startDelay={500}
-                            smartBackspace
-                            loop
-                        />
-                    </motion.h1>
+            <motion.div
+                initial="initial"
+                animate="in"
+                exit="out"
+                variants={pageVariants}
+                transition={pageTransition}
+            >
+                <div>
+                    {/* Introducción breve */}
+                    <section id="intro" className="text-center py-12 px-4">
+                        <motion.h1
+                            className="text-3xl sm:text-4xl md:text-5xl font-bold"
+                            initial={{ opacity: 0, y: -50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                        >
+                            <ReactTyped
+                                strings={[
+                                    "Hello, I'm Jorge Alvarado",
+                                    "FullStack Web Developer",
+                                    "Web developer with experience in modern technologies."
+                                ]}
+                                typeSpeed={50}
+                                backSpeed={25}
+                                backDelay={1000}
+                                startDelay={500}
+                                smartBackspace
+                                loop
+                            />
+                        </motion.h1>
 
-                    <motion.p
-                        className="mt-4 text-lg sm:text-xl md:text-3xl"
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.5 }}
-                    >
-                        <ReactTyped
-                            strings={["Welcome to my portfolio!"]}
-                            typeSpeed={50}
-                            backSpeed={25}
-                            backDelay={1000}
-                            startDelay={2700}
-                        />
-                    </motion.p>
-                </section>
+                        <motion.p
+                            className="mt-4 text-lg sm:text-xl md:text-3xl"
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                        >
+                            <ReactTyped
+                                strings={["Welcome to my portfolio!"]}
+                                typeSpeed={50}
+                                backSpeed={25}
+                                backDelay={1000}
+                                startDelay={2700}
+                            />
+                        </motion.p>
+                    </section>
 
-                {/* Foto de perfil */}
-                <section id="profile-pic" className="flex justify-center mt-8">
-                    <div className="profile-card">
-                        <div className="profile-card-inner">
-                            <div className="profile-card-front">
-                                <motion.img
-                                    src={`${BASE_URL}img/perfil.png`}
-                                    alt="Profile Picture"
-                                    className="rounded-full w-32 h-32 shadow-lg"
-                                    initial={{ scale: 0.8 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ duration: 0.5 }}
-                                />
-                            </div>
-                            <div className="profile-card-back">
-                                <img
-                                    src={`${BASE_URL}img/linkelin-qr.png`}
-                                    alt="Backside"
-                                    className="p-1"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Resumen de habilidades */}
-                <section id="skills" className="mt-12 py-8">
-                    <h2 className="text-3xl font-semibold text-center mb-3">Skills</h2>
-                    <motion.div
-                        className="max-w-7xl mx-auto px-4 lg:px-8"
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-4">
-                            {skills.map((skill, index) => (
-                                <div key={index} className="bg-lightColorHF dark:bg-darkColorHF skill-card p-4 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
-                                    <div className="icon-container mb-2">
-                                        {skill.icon}
-                                    </div>
-                                    <h3 className="text-xl cursor-default">{skill.name}</h3>
+                    {/* Foto de perfil */}
+                    <section id="profile-pic" className="flex justify-center mt-8">
+                        <div className="profile-card">
+                            <div className="profile-card-inner">
+                                <div className="profile-card-front">
+                                    <motion.img
+                                        src={`${BASE_URL}img/perfil.png`}
+                                        alt="Profile Picture"
+                                        className="rounded-full w-32 h-32 shadow-lg"
+                                        initial={{ scale: 0.8 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.5 }}
+                                    />
                                 </div>
-                            ))}
+                                <div className="profile-card-back">
+                                    <img
+                                        src={`${BASE_URL}img/linkelin-qr.png`}
+                                        alt="Backside"
+                                        className="p-1"
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </motion.div>
-                </section>
+                    </section>
 
-                {/* Proyectos destacados */}
-                <section id="featured-projects" className="mt-12 py-8 px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-3xl font-semibold text-center mb-6">Featured Projects</h2>
-                    <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                    {/* Resumen de habilidades */}
+                    <section id="skills" className="mt-12 py-8">
+                        <h2 className="text-3xl font-semibold text-center mb-3">Skills</h2>
                         <motion.div
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                            className="max-w-7xl mx-auto px-4 lg:px-8"
                             initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                         >
-                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                    <img src={`${BASE_URL}img/project-move.png`} alt="Move Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Move</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.</p>
-                                    <a href="https://move-repo-v1.netlify.app/movie-catalog" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                </div>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mt-4">
+                                {skills.map((skill, index) => (
+                                    <div key={index} className="bg-lightColorHF dark:bg-darkColorHF skill-card p-4 rounded-lg shadow-lg flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
+                                        <div className="icon-container mb-2">
+                                            {skill.icon}
+                                        </div>
+                                        <h3 className="text-xl cursor-default">{skill.name}</h3>
+                                    </div>
+                                ))}
                             </div>
-                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                    <img src={`${BASE_URL}img/project-todo.png`} alt="Todo Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Todo List</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.</p>
-                                    <a href="https://todo-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                </div>
-                            </div>
-                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                    <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Digital Clock Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Digital Clock</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.</p>
-                                    <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                </div>
-                            </div>
-                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                    <img src={`${BASE_URL}img/project-ac.png`} alt="Attendance Control" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Attendance Control</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.</p>
-                                    {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
-                                    <p className="mt-3 text-gray-600 dark:text-gray-400">
-                                        <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                    <img src={`${BASE_URL}img/project-omnia.png`} alt="Omnia" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Omnia</h3>
-                                    <p className="text-gray-600 dark:text-gray-400 mt-1">Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.</p>
-                                    {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
-                                    <p className="mt-3 text-gray-600 dark:text-gray-400">
-                                        <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Añade más proyectos aquí */}
                         </motion.div>
-                    </div>
-                </section>
+                    </section>
+
+                    {/* Proyectos destacados */}
+                    <section id="featured-projects" className="mt-12 py-8 px-4 sm:px-6 lg:px-8">
+                        <h2 className="text-3xl font-semibold text-center mb-6">Featured Projects</h2>
+                        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+                            <motion.div
+                                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+                                initial={{ opacity: 0, y: 100 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8 }}
+                            >
+                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                        <img src={`${BASE_URL}img/project-move.png`} alt="Move Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Move</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.</p>
+                                        <a href="https://move-repo-v1.netlify.app/movie-catalog" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                    </div>
+                                </div>
+                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                        <img src={`${BASE_URL}img/project-todo.png`} alt="Todo Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Todo List</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.</p>
+                                        <a href="https://todo-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                    </div>
+                                </div>
+                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                        <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Digital Clock Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Digital Clock</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.</p>
+                                        <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                    </div>
+                                </div>
+                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                        <img src={`${BASE_URL}img/project-ac.png`} alt="Attendance Control" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Attendance Control</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 mt-1">Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.</p>
+                                        {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
+                                        <p className="mt-3 text-gray-600 dark:text-gray-400">
+                                            <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                        <img src={`${BASE_URL}img/project-omnia.png`} alt="Omnia" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Omnia</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 mt-1">Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.</p>
+                                        {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
+                                        <p className="mt-3 text-gray-600 dark:text-gray-400">
+                                            <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Añade más proyectos aquí */}
+                            </motion.div>
+                        </div>
+                    </section>
 
 
-                {/* Llamada a la acción */}
-                <section id="call-to-action" className="text-center mt-12 py-8">
-                    <div className="container mx-auto px-4">
-                        <a
-                            href="/Portfolio/contact"
-                            className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-300 focus:ring-indigo-500"
-                        >
-                            Contact me
-                        </a>
-                    </div>
-                </section>
+                    {/* Llamada a la acción */}
+                    <section id="call-to-action" className="text-center mt-12 py-8">
+                        <div className="container mx-auto px-4">
+                            <a
+                                href="/Portfolio/contact"
+                                className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-full shadow-lg hover:bg-indigo-700 transition-colors duration-300 focus:ring-indigo-500"
+                            >
+                                Contact me
+                            </a>
+                        </div>
+                    </section>
 
-                {/* Testimonios */}
-                {/* <section id="testimonials" className="ml-6 mr-6 mt-12 py-8">
+                    {/* Testimonios */}
+                    {/* <section id="testimonials" className="ml-6 mr-6 mt-12 py-8">
                     <h2 className="text-3xl font-semibold text-center mb-3">Testimonials</h2>
                     <motion.div
                         className="flex space-x-4"
@@ -231,7 +260,8 @@ const HomePage = () => {
                     </motion.div>
                 </section> */}
 
-            </div>
+                </div>
+            </motion.div>
         </MainLayout>
     );
 };

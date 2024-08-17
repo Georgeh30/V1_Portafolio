@@ -2,9 +2,6 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 
 import RoutesHandle from '@routes/jsx/RoutesHandle';
 
-import Header from '@components/headers/jsx/Header';
-import NavbarNormal from '@components/navbars/jsx/NavbarNormal';
-
 import '@app/css/App.css'
 
 function App() {
