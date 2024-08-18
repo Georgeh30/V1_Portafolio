@@ -353,6 +353,18 @@ const CurriculumPage = () => {
                                             Reloj digital realizado con JavaScript puro. Muestra la hora actual, minuto y segundo, y se actualiza en tiempo real.
                                         </p>
                                     </div>
+                                    {/* Proyecto 3 */}
+                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                        <a href="https://calculator-repo-v1.netlify.app/" className="block mb-3">
+                                            <img src={`${BASE_URL}img/project-calculator.png`} alt="Calculadora" className="w-full h-32 object-cover rounded-md" />
+                                        </a>
+                                        <h3 className="text-base sm:text-lg font-semibold mb-1">
+                                            <a href="https://calculator-repo-v1.netlify.app/" className="text-blue-600 hover:underline">Calculadora Básica</a>
+                                        </h3>
+                                        <p className="text-gray-700 dark:text-gray-300 text-sm">
+                                            Calculadora básica creada con JavaScript puro, HTML y CSS. Permite realizar operaciones aritméticas simples como suma, resta, multiplicación y división.
+                                        </p>
+                                    </div>
                                     {/* Proyecto 4 (Interno) */}
                                     <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                                         <img src={`${BASE_URL}img/project-ac.png`} alt="Attendance Control" className="w-full h-32 sm:h-40 md:h-48 object-cover rounded-md mb-3" />

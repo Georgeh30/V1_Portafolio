@@ -37,18 +37,18 @@ const skills = [
 
 const pageVariants = {
     initial: {
-      opacity: 0,
-      x: "-100vw"
+        opacity: 0,
+        x: "-100vw"
     },
     in: {
-      opacity: 1,
-      x: 0
+        opacity: 1,
+        x: 0
     },
     out: {
-      opacity: 0,
-      x: "100vw"
+        opacity: 0,
+        x: "100vw"
     }
-};  
+};
 
 const pageTransition = {
     type: "tween",
@@ -193,6 +193,16 @@ const HomePage = () => {
                                         <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Digital Clock</h3>
                                         <p className="text-gray-600 dark:text-gray-400 mt-1">A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.</p>
                                         <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                    </div>
+                                </div>
+                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                        <img src={`${BASE_URL}img/project-calculator.png`} alt="Calculator Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Calculator</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A simple calculator application with basic arithmetic functions. Developed using pure JavaScript, CSS, and HTML for a clean and responsive design.</p>
+                                        <a href="https://calculator-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
                                     </div>
                                 </div>
                                 <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
