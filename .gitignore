@@ -207,6 +207,3 @@ sketch
 *.sln
 *.sw?
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,react,node,git,composer
-
-# Ignorar carpeta ya construida para produccion con nombre personalizado
-ATTENDANCE-CONTROL
