@@ -71,6 +71,16 @@ const initialProjects = [
     },
     {
         id: 5,
+        title: 'Weather App',
+        description: 'A modern weather application built with React JS, Vite JS, Redux, Redux Toolkit, React Router, and styled with Tailwind CSS. It fetches weather data from OpenWeatherMap API, providing real-time updates and forecasts.',
+        technologies: ['React JS', 'Vite JS', 'Redux', 'Redux Toolkit', 'React Router', 'Tailwind CSS'],
+        imageUrl: `${BASE_URL}img/project-weather.png`,
+        demoUrl: 'https://weather-repo-v1.netlify.app/',
+        repoUrl: 'https://github.com/Georgeh30/Clima-App', // Cambia a tu URL de repositorio real
+        type: 'Application',
+    },    
+    {
+        id: 6,
         title: 'Attendance Control',
         description: 'Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.',
         technologies: ['React JS', 'Vite JS', 'React Router', 'Redux', 'PHP', 'SQL Server'],
@@ -81,7 +91,7 @@ const initialProjects = [
         note: 'This project is not publicly available as it was developed on the company\'s internal servers.',
     },
     {
-        id: 6,
+        id: 7,
         title: 'Omnia',
         description: 'Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.',
         technologies: ['JavaScript', 'jQuery', 'PHP', 'SQL Server'],

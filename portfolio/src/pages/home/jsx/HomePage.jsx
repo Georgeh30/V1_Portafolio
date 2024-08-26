@@ -207,6 +207,16 @@ const HomePage = () => {
                                 </div>
                                 <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
                                     <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                        <img src={`${BASE_URL}img/project-weather.png`} alt="Weather App Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Weather App</h3>
+                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A modern weather application built with React JS, Vite JS, Redux, Redux Toolkit, React Router, and styled with Tailwind CSS. It fetches weather data from OpenWeatherMap API, providing real-time updates and forecasts.</p>
+                                        <a href="https://weather-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                    </div>
+                                </div>
+                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
                                         <img src={`${BASE_URL}img/project-ac.png`} alt="Attendance Control" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
                                     </div>
                                     <div className="p-4">
