@@ -103,7 +103,7 @@ const AboutPage = () => {
                             </h2>
                             <div className="bg-lightColorHF dark:bg-darkColorHF p-4 rounded-lg shadow-md">
                                 <p className="text-base">
-                                    "Jorge Alvarado has proven to be an exceptional professional in every project. His problem-solving ability and dedication are unmatched." - [Testimonial Name]
+                                    "Jorge Alvarado has proven to be an exceptional professional in every project. His problem-solving ability and dedication are unmatched." - 
                                 </p>
                             </div>
                         </section>
@@ -115,7 +115,7 @@ const AboutPage = () => {
                             </h2>
                             <div className="bg-lightColorHF dark:bg-darkColorHF p-4 rounded-lg shadow-md">
                                 <p className="text-base">
-                                    If you'd like to get in touch with me, feel free to send me an email at <a href="mailto:johncrotf2@gmail.com" className="text-blue-500">example@example.com</a> or follow me on my social networks.
+                                    If you'd like to get in touch with me, feel free to send me an email at <a href="mailto:johncrotf2@gmail.com" className="text-blue-500">johncrotf2@gmail.com</a> or follow me on my social networks.
                                 </p>
                             </div>
                         </section>
