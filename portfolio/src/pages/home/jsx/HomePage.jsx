@@ -56,8 +56,63 @@ const pageTransition = {
     duration: 1
 };
 
+const BASE_URL = config.BASE_URL;
+
+const featuredProjects = [
+    {
+        name: 'Move',
+        description: 'A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.',
+        imageUrl: `${BASE_URL}img/project-move.png`,
+        link: 'https://move-repo-v1.netlify.app/movie-catalog'
+    },
+    {
+        name: 'Todo List',
+        description: 'A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.',
+        imageUrl: `${BASE_URL}img/project-todo.png`,
+        link: 'https://todo-repo-v1.netlify.app/'
+    },
+    {
+        name: 'Digital Clock',
+        description: 'A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.',
+        imageUrl: `${BASE_URL}img/project-digital-clock.png`,
+        link: 'https://digital-clock-repo-v1.netlify.app/'
+    },
+    {
+        name: 'Calculator',
+        description: 'A simple calculator application with basic arithmetic functions. Developed using pure JavaScript, CSS, and HTML for a clean and responsive design.',
+        imageUrl: `${BASE_URL}img/project-calculator.png`,
+        link: 'https://calculator-repo-v1.netlify.app/'
+    },
+    {
+        name: 'Weather App',
+        description: 'A modern weather application built with React JS, Vite JS, Redux, Redux Toolkit, React Router, and styled with Tailwind CSS. It fetches weather data from OpenWeatherMap API, providing real-time updates and forecasts.',
+        imageUrl: `${BASE_URL}img/project-weather.png`,
+        link: 'https://weather-repo-v1.netlify.app/'
+    },
+    {
+        name: 'English Helper',
+        description: 'A web application designed to assist users in learning English. Built with React JS, Vite JS, Tailwind CSS, Redux, Redux Toolkit, and React Router, this app utilizes the Cloud Translation API and api.dictionaryapi.dev to provide translation and dictionary services for an enhanced learning experience.',
+        imageUrl: `${BASE_URL}img/project-englishHelper.png`,
+        link: 'https://englishhelper-repo-v1.netlify.app/'
+    },
+    {
+        name: 'Attendance Control',
+        description: 'Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.',
+        imageUrl: `${BASE_URL}img/project-ac.png`,
+        link: '#',
+        note: 'This project is not publicly available as it was developed on the company\'s internal servers.'
+    },
+    {
+        name: 'Omnia',
+        description: 'Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.',
+        imageUrl: `${BASE_URL}img/project-omnia.png`,
+        link: '#',
+        note: 'This project is not publicly available as it was developed on the company\'s internal servers.'
+    }
+    // Añade más proyectos aquí si es necesario
+];
+
 const HomePage = () => {
-    const BASE_URL = config.BASE_URL;
 
     return (
         <MainLayout>
@@ -165,87 +220,28 @@ const HomePage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                        <img src={`${BASE_URL}img/project-move.png`} alt="Move Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                {featuredProjects.map((project, index) => (
+                                    <div key={index} className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                        <div className="relative w-full h-48 sm:h-56 lg:h-64">
+                                            <img src={project.imageUrl} alt={`${project.name} Project Image`} className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
+                                        </div>
+                                        <div className="p-4">
+                                            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">{project.name}</h3>
+                                            <p className="text-gray-600 dark:text-gray-400 mt-1">{project.description}</p>
+                                            {project.link ? (
+                                                <a href={project.link} className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
+                                            ) : (
+                                                <p className="mt-3 text-gray-600 dark:text-gray-400">
+                                                    <strong className="text-red-500 font-semibold">Note:</strong> {project.note}
+                                                </p>
+                                            )}
+                                        </div>
                                     </div>
-                                    <div className="p-4">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Move</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A movie catalog application where you can browse, search, and filter movies. Built with React and Tailwind CSS.</p>
-                                        <a href="https://move-repo-v1.netlify.app/movie-catalog" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                    </div>
-                                </div>
-                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                        <img src={`${BASE_URL}img/project-todo.png`} alt="Todo Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Todo List</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A task management app to help you organize and track your to-do items. Built with React, Redux, and Tailwind CSS.</p>
-                                        <a href="https://todo-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                    </div>
-                                </div>
-                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                        <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Digital Clock Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Digital Clock</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A digital clock application that displays the current time with a sleek design. Built with React and styled with Tailwind CSS.</p>
-                                        <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                    </div>
-                                </div>
-                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                        <img src={`${BASE_URL}img/project-calculator.png`} alt="Calculator Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Calculator</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A simple calculator application with basic arithmetic functions. Developed using pure JavaScript, CSS, and HTML for a clean and responsive design.</p>
-                                        <a href="https://calculator-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                    </div>
-                                </div>
-                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                        <img src={`${BASE_URL}img/project-weather.png`} alt="Weather App Project Image" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Weather App</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mt-1">A modern weather application built with React JS, Vite JS, Redux, Redux Toolkit, React Router, and styled with Tailwind CSS. It fetches weather data from OpenWeatherMap API, providing real-time updates and forecasts.</p>
-                                        <a href="https://weather-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a>
-                                    </div>
-                                </div>
-                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                        <img src={`${BASE_URL}img/project-ac.png`} alt="Attendance Control" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Attendance Control</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mt-1">Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.</p>
-                                        {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
-                                        <p className="mt-3 text-gray-600 dark:text-gray-400">
-                                            <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                    <div className="relative w-full h-48 sm:h-56 lg:h-64">
-                                        <img src={`${BASE_URL}img/project-omnia.png`} alt="Omnia" className="absolute inset-0 w-full h-full object-cover rounded-border transition-opacity duration-300 hover:opacity-80" />
-                                    </div>
-                                    <div className="p-4">
-                                        <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mt-2">Omnia</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mt-1">Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.</p>
-                                        {/* <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-500 hover:underline mt-2 inline-block">See more</a> */}
-                                        <p className="mt-3 text-gray-600 dark:text-gray-400">
-                                            <strong className="text-red-500 font-semibold">Note:</strong> This project is not publicly available as it was developed on the company's internal servers.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Añade más proyectos aquí */}
+                                ))}
                             </motion.div>
                         </div>
                     </section>
+
 
 
                     {/* Llamada a la acción */}

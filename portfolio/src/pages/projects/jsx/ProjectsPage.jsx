@@ -76,11 +76,21 @@ const initialProjects = [
         technologies: ['React JS', 'Vite JS', 'Redux', 'Redux Toolkit', 'React Router', 'Tailwind CSS'],
         imageUrl: `${BASE_URL}img/project-weather.png`,
         demoUrl: 'https://weather-repo-v1.netlify.app/',
-        repoUrl: 'https://github.com/Georgeh30/Clima-App', // Cambia a tu URL de repositorio real
+        repoUrl: 'https://github.com/Georgeh30/Clima-App',
+        type: 'Application',
+    },
+    {
+        id: 6,
+        title: 'English Helper',
+        description: 'A web application designed to assist users in learning English. Built with React JS, Vite JS, Tailwind CSS, Redux, Redux Toolkit, and React Router, this app utilizes the Cloud Translation API and api.dictionaryapi.dev to provide translation and dictionary services for an enhanced learning experience.',
+        technologies: ['React JS', 'Vite JS', 'Redux', 'Redux Toolkit', 'React Router', 'Tailwind CSS'],
+        imageUrl: `${BASE_URL}img/project-englishHelper.png`,
+        demoUrl: 'https://englishhelper-repo-v1.netlify.app/',
+        repoUrl: 'https://github.com/Georgeh30/English-helper',
         type: 'Application',
     },    
     {
-        id: 6,
+        id: 7,
         title: 'Attendance Control',
         description: 'Attendance control and incident management platform developed for the company. Implemented with React JS + Vite JS + React Router + Redux and backend in PHP with SQL Server.',
         technologies: ['React JS', 'Vite JS', 'React Router', 'Redux', 'PHP', 'SQL Server'],
@@ -91,7 +101,7 @@ const initialProjects = [
         note: 'This project is not publicly available as it was developed on the company\'s internal servers.',
     },
     {
-        id: 7,
+        id: 8,
         title: 'Omnia',
         description: 'Tool for monthly performance tracking of operators and salespeople. Developed with plain JavaScript and jQuery for the frontend, and PHP with SQL Server for the backend.',
         technologies: ['JavaScript', 'jQuery', 'PHP', 'SQL Server'],

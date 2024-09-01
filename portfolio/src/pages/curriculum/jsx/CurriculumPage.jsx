@@ -26,9 +26,61 @@ const pageTransition = {
     duration: 1
 };
 
+const BASE_URL = config.BASE_URL;
+
+const projects = [
+    {
+        title: 'To Do List',
+        description: 'Aplicación de lista de tareas construida únicamente con React JS. Permite agregar, editar y eliminar tareas de manera eficiente y moderna.',
+        imageUrl: `${BASE_URL}img/project-todo.png`,
+        demoUrl: 'https://todo-repo-v1.netlify.app/',
+    },
+    {
+        title: 'Move',
+        description: 'Aplicación de catálogo de solo información sobre películas alimentada a través de una API. Desarrollada con React JS, Vite JS, React Router, Redux y Redux Toolkit.',
+        imageUrl: `${BASE_URL}img/project-move.png`,
+        demoUrl: 'https://move-repo-v1.netlify.app/movie-catalog',
+    },
+    {
+        title: 'Reloj Digital',
+        description: 'Reloj digital realizado con JavaScript puro. Muestra la hora actual, minuto y segundo, y se actualiza en tiempo real.',
+        imageUrl: `${BASE_URL}img/project-digital-clock.png`,
+        demoUrl: 'https://digital-clock-repo-v1.netlify.app/',
+    },
+    {
+        title: 'Calculadora Básica',
+        description: 'Calculadora básica creada con JavaScript puro, HTML y CSS. Permite realizar operaciones aritméticas simples como suma, resta, multiplicación y división.',
+        imageUrl: `${BASE_URL}img/project-calculator.png`,
+        demoUrl: 'https://calculator-repo-v1.netlify.app/',
+    },
+    {
+        title: 'Aplicación de Clima',
+        description: 'Aplicación de clima moderna creada con React JS, Vite JS, Redux, Redux Toolkit, React Router y Tailwind CSS. Obtiene datos del clima en tiempo real desde la API de OpenWeatherMap y muestra actualizaciones y pronósticos.',
+        imageUrl: `${BASE_URL}img/project-weather.png`,
+        demoUrl: 'https://weather-repo-v1.netlify.app/',
+    },
+    {
+        title: 'English Helper',
+        description: 'Aplicación web diseñada para asistir a los usuarios en el aprendizaje del inglés. Construida con React JS, Vite JS, Tailwind CSS, Redux, Redux Toolkit y React Router, esta aplicación utiliza la API de Cloud Translation y api.dictionaryapi.dev para proporcionar servicios de traducción y diccionario para una experiencia de aprendizaje mejorada.',
+        imageUrl: `${BASE_URL}img/project-englishHelper.png`,
+        demoUrl: 'https://englishhelper-repo-v1.netlify.app/',
+    },
+    {
+        title: 'Attendance Control',
+        description: 'Plataforma de control de asistencia y gestión de incidencias desarrollada para la empresa. Implementada con React JS + Vite JS + React Router + Redux y backend en PHP con SQL Server.',
+        imageUrl: `${BASE_URL}img/project-ac.png`,
+        demoUrl: '#', // Actualiza con el enlace de demostración si es necesario
+    },
+    {
+        title: 'Omnia',
+        description: 'Herramienta para el control de rendimiento mensual de operadores y vendedores. Desarrollada con JavaScript puro y jQuery para el frontend, y PHP con SQL Server para el backend.',
+        imageUrl: `${BASE_URL}img/project-omnia.png`,
+        demoUrl: '#', // Actualiza con el enlace de demostración si es necesario
+    },
+];
+
 // Ejemplo de uso
 const CurriculumPage = () => {
-    const BASE_URL = config.BASE_URL;
 
     return (
         <MainLayout>
@@ -317,82 +369,19 @@ const CurriculumPage = () => {
                                     <FaProjectDiagram className="mr-2" /> Proyectos destacados
                                 </h2>
                                 <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                                    {/* Proyecto 1 */}
-                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                        <a href="https://todo-repo-v1.netlify.app/" className="block mb-3">
-                                            <img src={`${BASE_URL}img/project-todo.png`} alt="To Do List" className="w-full h-32 object-cover rounded-md" />
-                                        </a>
-                                        <h3 className="text-base sm:text-lg font-semibold mb-1">
-                                            <a href="https://todo-repo-v1.netlify.app/" className="text-blue-600 hover:underline">To Do List</a>
-                                        </h3>
-                                        <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                            Aplicación de lista de tareas construida únicamente con React JS. Permite agregar, editar y eliminar tareas de manera eficiente y moderna.
-                                        </p>
-                                    </div>
-                                    {/* Proyecto 2 */}
-                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                        <a href="https://move-repo-v1.netlify.app/movie-catalog" className="block mb-3">
-                                            <img src={`${BASE_URL}img/project-move.png`} alt="Lista de Películas Recientes" className="w-full h-32 object-cover rounded-md" />
-                                        </a>
-                                        <h3 className="text-base sm:text-lg font-semibold mb-1">
-                                            <a href="https://move-repo-v1.netlify.app/movie-catalog" className="text-blue-600 hover:underline">Move</a>
-                                        </h3>
-                                        <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                            Aplicación de catálogo de solo información sobre películas alimentada a través de una API. Desarrollada con React JS, Vite JS, React Router, Redux y Redux Toolkit.
-                                        </p>
-                                    </div>
-                                    {/* Proyecto 3 */}
-                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                        <a href="https://digital-clock-repo-v1.netlify.app/" className="block mb-3">
-                                            <img src={`${BASE_URL}img/project-digital-clock.png`} alt="Reloj Digital" className="w-full h-32 object-cover rounded-md" />
-                                        </a>
-                                        <h3 className="text-base sm:text-lg font-semibold mb-1">
-                                            <a href="https://digital-clock-repo-v1.netlify.app/" className="text-blue-600 hover:underline">Reloj Digital</a>
-                                        </h3>
-                                        <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                            Reloj digital realizado con JavaScript puro. Muestra la hora actual, minuto y segundo, y se actualiza en tiempo real.
-                                        </p>
-                                    </div>
-                                    {/* Proyecto 4 */}
-                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                        <a href="https://calculator-repo-v1.netlify.app/" className="block mb-3">
-                                            <img src={`${BASE_URL}img/project-calculator.png`} alt="Calculadora" className="w-full h-32 object-cover rounded-md" />
-                                        </a>
-                                        <h3 className="text-base sm:text-lg font-semibold mb-1">
-                                            <a href="https://calculator-repo-v1.netlify.app/" className="text-blue-600 hover:underline">Calculadora Básica</a>
-                                        </h3>
-                                        <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                            Calculadora básica creada con JavaScript puro, HTML y CSS. Permite realizar operaciones aritméticas simples como suma, resta, multiplicación y división.
-                                        </p>
-                                    </div>
-                                    {/* Proyecto 5 */}
-                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                        <a href="https://weather-repo-v1.netlify.app/" className="block mb-3">
-                                            <img src={`${BASE_URL}img/project-weather.png`} alt="Aplicación de Clima" className="w-full h-32 object-cover rounded-md" />
-                                        </a>
-                                        <h3 className="text-base sm:text-lg font-semibold mb-1">
-                                            <a href="https://weather-repo-v1.netlify.app/" className="text-blue-600 hover:underline">Aplicación de Clima</a>
-                                        </h3>
-                                        <p className="text-gray-700 dark:text-gray-300 text-sm">
-                                            Aplicación de clima moderna creada con React JS, Vite JS, Redux, Redux Toolkit, React Router y Tailwind CSS. Obtiene datos del clima en tiempo real desde la API de OpenWeatherMap y muestra actualizaciones y pronósticos.
-                                        </p>
-                                    </div>
-                                    {/* Proyecto 6 (Interno) */}
-                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                        <img src={`${BASE_URL}img/project-ac.png`} alt="Attendance Control" className="w-full h-32 sm:h-40 md:h-48 object-cover rounded-md mb-3" />
-                                        <h3 className="text-base sm:text-lg font-semibold mb-1">Attendance Control</h3>
-                                        <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                                            Plataforma de control de asistencia y gestión de incidencias desarrollada para la empresa. Implementada con React JS + Vite JS + React Router + Redux y backend en PHP con SQL Server.
-                                        </p>
-                                    </div>
-                                    {/* Proyecto 7 (Interno) */}
-                                    <div className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-                                        <img src={`${BASE_URL}img/project-omnia.png`} alt="Omnia" className="w-full h-32 sm:h-40 md:h-48 object-cover rounded-md mb-3" />
-                                        <h3 className="text-base sm:text-lg font-semibold mb-1">Omnia</h3>
-                                        <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                                            Herramienta para el control de rendimiento mensual de operadores y vendedores. Desarrollada con JavaScript puro y jQuery para el frontend, y PHP con SQL Server para el backend.
-                                        </p>
-                                    </div>
+                                    {projects.map((project, index) => (
+                                        <div key={index} className="dark:bg-darkColorHF bg-lightColorHF p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                                            <a href={project.demoUrl} className="block mb-3">
+                                                <img src={project.imageUrl} alt={project.title} className="w-full h-32 object-cover rounded-md" />
+                                            </a>
+                                            <h3 className="text-base sm:text-lg font-semibold mb-1">
+                                                <a href={project.demoUrl} className="text-blue-600 hover:underline">{project.title}</a>
+                                            </h3>
+                                            <p className="text-gray-700 dark:text-gray-300 text-sm">
+                                                {project.description}
+                                            </p>
+                                        </div>
+                                    ))}
                                 </div>
                             </section>
 
